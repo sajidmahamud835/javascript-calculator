@@ -2,7 +2,7 @@
 let operator;
 
 /* Number Button Action */
-function numberButtonAction(buttonId) {
+function buttonAction(buttonId) {
     const buttonText = document.getElementById(buttonId).innerText;
     const buttonValue = parseFloat(buttonText);
 
@@ -31,16 +31,16 @@ function numberButtonAction(buttonId) {
 
 }
 
-/* click handeler */
+/* click handeler for numbers*/
 
-function numberButton(number) {
-    document.getElementById(number).addEventListener('click', function () {
-        numberButtonAction(number);
+function buttonEvent(buttonId) {
+    document.getElementById(buttonId).addEventListener('click', function () {
+        buttonAction(buttonId);
     });
 }
 
-/* all numbers */
+// all numbers
 for (let index = 0; index < 10; index++) {
-    const number = index;
-    numberButton(number);
+    buttonEvent(index);
 }
+
