@@ -1,12 +1,46 @@
 
+let operator;
+
 /* Number Button Action */
 function numberButtonAction(buttonId) {
-    const buttonValue = document.getElementById(buttonId).innerText;
+    const buttonText = document.getElementById(buttonId).innerText;
+    const buttonValue = parseFloat(buttonText);
 
-    document.getElementById('display').innerText = buttonValue;
+    const displayText = document.getElementById('display').innerText;
+    const displayValue = parseFloat(displayText);
+
+    if (operator == 'add') {
+        const result = displayValue + buttonValue;
+        document.getElementById('display').innerText = result;
+    }
+    else if (operator == 'sub') {
+        const result = displayValue - buttonValue;
+        document.getElementById('display').innerText = result;
+    }
+    else if (operator == 'mul') {
+        const result = displayValue * buttonValue;
+    }
+    else if (operator == 'div') {
+        const result = displayValue / buttonValue;
+        document.getElementById('display').innerText = result;
+    }
+    else {
+        const result = buttonValue;
+        document.getElementById('display').innerText = result;
+    }
+
 }
 
 /* click handeler */
 
-document.getElementById('1').addEventListener('click', numberButtonAction('1'));
-document.getElementById('2').addEventListener('click', numberButtonAction('2'));
+function numberButton(number) {
+    document.getElementById(number).addEventListener('click', function () {
+        numberButtonAction(number);
+    });
+}
+
+/* all numbers */
+for (let index = 0; index < 10; index++) {
+    const number = index;
+    numberButton(number);
+}
